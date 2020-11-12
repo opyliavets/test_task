@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../Utils/Axios-Test-task'
 
 export function getAlphabet(){
     const alphString = [];
@@ -9,10 +9,20 @@ export function getAlphabet(){
     
   }
 
-export function getEmpoyees(){
-    let data = axios.get('https://yalantis-react-school-api.yalantis.com/api/task0/users');
-    let employees = Response.data
-    console.log(employees);
+export async function getEmpoyees(employeesArray){
+    const response = await axios.get(employeesArray);
+    const employeesResp = response.data;
+    const employeesList = [];
+    employeesResp.map((employee, i) => (
+        employeesList[i] = {
+            id: employee.id,
+            lastFName: employee.lastName,
+            firstName: employee.firstName,
+            dob: employee.dob
+        }
+    ))
+
+    console.log(employeesList); 
   }
  
   
