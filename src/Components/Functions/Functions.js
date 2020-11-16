@@ -1,5 +1,3 @@
-import axios from '../../Utils/Axios-Test-task'
-
 export function getAlphabet(){
     const alphString = [];
     for(let i = 0; i < 26; i++){
@@ -9,20 +7,14 @@ export function getAlphabet(){
     
   }
 
-export async function getEmpoyees(employeesArray){
-    const response = await axios.get(employeesArray);
-    const employeesResp = response.data;
-    const employeesList = [];
-    employeesResp.map((employee, i) => (
-        employeesList[i] = {
-            id: employee.id,
-            lastFName: employee.lastName,
-            firstName: employee.firstName,
-            dob: employee.dob
-        }
-    ))
-
-    console.log(employeesList); 
+export function getEmployees(employeesArray){
+      {employeesArray?.map((item) => {
+        return (
+          <div key={item.id}>
+            <div style={{ color: 'red' }}><p>{item.firstName + ' ' + item.lastName}</p></div>
+          </div>
+        )
+      })}
   }
  
   
