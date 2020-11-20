@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Alphabet from './Components/Elements/Alphabet/Alphabetlist'
+import DateOfBirth from './Components/Elements/DateOfBirth/DateOfBirth'
+// import classes from './App.scss'
 
 const dobContext = React.createContext()
 
@@ -8,8 +10,9 @@ function App() {
 
   return (
     <dobContext.Provider value={checked}>
-      <div className="App">
-        <Alphabet/>
+      <div style={{display:'flex', flexFlow:'row nowrap'}}>
+        <Alphabet />
+        <DateOfBirth />
       </div>
     </dobContext.Provider>
   );
