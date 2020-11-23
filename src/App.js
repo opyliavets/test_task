@@ -1,25 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Alphabet from './Components/Elements/Alphabet/Alphabetlist'
 import DateOfBirth from './Components/Elements/DateOfBirth/DateOfBirth'
-// import classes from './App.scss'
+import { DobProvider } from './Components/Elements/DobContext/DobContext';
 
-const dobContext = React.createContext()
 
-function App() {
-  const [checked, setChecked] = useState(false);
+export default function App() {
 
   return (
-    <dobContext.Provider value={checked}>
-      <div style={{display:'flex', flexFlow:'row nowrap'}}>
-        <Alphabet />
+    <DobProvider>
+      <div style={{display:'flex', flexFlow:'row nowrap', justifyContent:'space-between'}}>
+        <Alphabet onClick={()=>{}}/>
         <DateOfBirth />
       </div>
-    </dobContext.Provider>
+    </DobProvider>
   );
 }
 
-export default App;
 
-// Додати функціональний компонент - блок справа Date of birth + його структуру, ... 
-// передати в нього useContext(dobContext) та реалізувати відображення дати ...
-// народження кожного user'a при зміні state - checked.!!!
